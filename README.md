@@ -1,8 +1,11 @@
-# React + Vite
+# React + Vite + React query
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Default behavior of react query
 
-Currently, two official plugins are available:
+Initial run will do the fetch.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+If component got unmounted and then mounted will serve the cache and meantime will do the fetch again in background to make sure serve the updated data.
+
+If you don't need this behavior you can set 'staleTime: Infinity'. This will stop doing background refetch.
+
+If you want to remove caching functionality set 'cacheTime: 0'. By doing this whenever component get mounted will do fetch again and again.
